@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 10.0f;
+    public Animator playerAnim;
 
     // Update is called once per frame
     void Update()
