@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -5,21 +6,27 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         
+        playerAnim = GetComponent<Animator>();
     }
 
-    public float horizontalInput;
-    public float verticalInput;
+    //Initialize variables
+    private float hInput;
+    private float vInput;
     public float speed = 10.0f;
-    public Animator playerAnim;
+    private Animator playerAnim;
 
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        // Grab input data
+        hInput = Input.GetAxis("Horizontal");
+        vInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed);
-        transform.Translate(Vector2.up * verticalInput * Time.deltaTime * speed);
+        // Translate player in direction of user input
+        transform.Translate(Vector2.right * hInput * Time.deltaTime * speed);
+        transform.Translate(Vector2.up * vInput * Time.deltaTime * speed);
+
+
+
     }
 }
