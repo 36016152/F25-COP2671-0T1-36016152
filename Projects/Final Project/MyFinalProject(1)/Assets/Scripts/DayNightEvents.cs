@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DayNightManager : MonoBehaviour
 {
+    // Create manager singleton
     public static DayNightManager current;
 
     private void Awake()
@@ -10,6 +11,7 @@ public class DayNightManager : MonoBehaviour
         current = this;
     }
 
+    // Initialize Triggers
     public event Action onSunriseTrigger;
     public event Action onSunsetTrigger;
 

@@ -28,6 +28,7 @@ public class TimeManager : MonoBehaviour
     {
         while (true)
         {
+            // Iterate on the time of day and reset when it has met the length of day
             ++timeOfDay;
 
             if (timeOfDay == lengthOfDay)
@@ -42,6 +43,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Trigger sunrise and sunset at 6 am and 6 pm
         if (timeOfDay == (lengthOfDay/4))
         {
             DayNightManager.current.SunriseTrigger();
