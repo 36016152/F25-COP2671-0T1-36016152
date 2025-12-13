@@ -1,16 +1,31 @@
+using System;
 using UnityEngine;
 
 public class DayNightManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static DayNightManager current;
+
+    private void Awake()
     {
-        
+        current = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public event Action onSunriseTrigger;
+    public event Action onSunsetTrigger;
+
+    public void SunriseTrigger()
     {
-        
+        if (onSunriseTrigger != null)
+        {
+            onSunriseTrigger();
+        }
+    }
+
+    public void SunsetTrigger()
+    {
+        if (onSunsetTrigger != null)
+        {
+            onSunsetTrigger();
+        }
     }
 }

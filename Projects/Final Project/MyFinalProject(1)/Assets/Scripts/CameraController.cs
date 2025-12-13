@@ -26,13 +26,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         minY = bounds.min.y;
         maxY = bounds.max.y;
-        Debug.Log(minX + maxX + minY + maxY);
 
         camBounds = new Bounds();
         camBounds.SetMinMax(
             new Vector3(minX, minY, 0.0f),
             new Vector3(maxX, maxY, 0.0f)
             );
+
+        Debug.Log(camBounds);
     }
 
     private Vector3 GetCameraBounds()
@@ -47,10 +48,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void LateUpdate()
     {
         targetPos = player.transform.position;
-
         targetPos = GetCameraBounds();
-        transform.position = targetPos;
-
-
+        transform.position = GetCameraBounds();
     }
 }
